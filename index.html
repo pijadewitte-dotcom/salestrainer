@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Sales Trainer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="setup-panel" id="setupPanel" aria-labelledby="setupTitle">
+        <div class="brand-row">
+          <div class="brand-mark">AI</div>
+          <div>
+            <p class="eyebrow">Vraaggestuurde objectietraining</p>
+            <h1 id="setupTitle">AI Sales Trainer</h1>
+          </div>
+        </div>
+
+        <form id="setupForm" class="setup-form">
+          <label>
+            Sector
+            <input name="sector" placeholder="bv. jacuzzi, vastgoed, software, auto's" required />
+          </label>
+
+          <label>
+            Klant
+            <input name="customer" placeholder="bv. B2C koppel, CFO, zaakvoerder" required />
+          </label>
+
+          <label>
+            Niveau
+            <select name="level">
+              <option value="beginner">Beginner</option>
+              <option value="gemiddeld" selected>Gemiddeld</option>
+              <option value="gevorderd">Gevorderd</option>
+            </select>
+          </label>
+
+          <label>
+            Objecties
+            <textarea name="objections" placeholder="Laat leeg als de app objecties mag kiezen"></textarea>
+          </label>
+
+          <button type="submit">Start training</button>
+        </form>
+      </section>
+
+      <section class="trainer-panel" id="trainerPanel" hidden>
+        <header class="trainer-header">
+          <div>
+            <p class="eyebrow" id="scenarioMeta">Scenario</p>
+            <h2>Live klantensimulatie</h2>
+          </div>
+          <div class="mode-controls">
+            <button type="button" id="pressureButton">Pressure mode</button>
+            <button type="button" id="resetButton">Reset</button>
+          </div>
+        </header>
+
+        <div class="conversation" id="conversation" aria-live="polite"></div>
+
+        <form id="replyForm" class="reply-form">
+          <textarea id="replyInput" placeholder="Typ jouw antwoord als verkoper..." required></textarea>
+          <button type="submit">Verstuur</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
